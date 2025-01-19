@@ -10,6 +10,7 @@ public class ManageFrame extends JFrame {
     private JComboBox<String> tableSelector;
 
     public ManageFrame() {
+        
         setTitle("Gestion des Tables");
         setSize(700, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

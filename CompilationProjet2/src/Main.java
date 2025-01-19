@@ -8,6 +8,8 @@ public class Main {
     }
 
     public static void showMainMenu() {
+
+        
         JFrame frame = new JFrame("Command Management");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
