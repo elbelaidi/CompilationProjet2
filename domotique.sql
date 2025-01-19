@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jan 19, 2025 at 04:47 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.1.17
+-- Hôte : 127.0.0.1:3306
+-- Généré le : dim. 19 jan. 2025 à 22:44
+-- Version du serveur : 9.1.0
+-- Version de PHP : 8.3.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,143 +18,84 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `domotique`
+-- Base de données : `domotique`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Action`
+-- Structure de la table `actions`
 --
 
-CREATE TABLE `Action` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `actions`;
+CREATE TABLE IF NOT EXISTS `actions` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `Action`
+-- Déchargement des données de la table `actions`
 --
 
-INSERT INTO `Action` (`id`, `nom`) VALUES
-(3, 'régler'),
-(4, 'Allumer');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `Article`
---
-
-CREATE TABLE `Article` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `Article`
---
-
-INSERT INTO `Article` (`id`, `nom`) VALUES
-(1, 'à'),
-(2, 'dans');
+INSERT INTO `actions` (`id`, `nom`) VALUES
+(1, 'Allumer'),
+(2, 'Fermer'),
+(3, 'Activer'),
+(4, 'Désactiver'),
+(5, 'Réinitialiser'),
+(6, 'Stopper');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Cible`
+-- Structure de la table `appareils`
 --
 
-CREATE TABLE `Cible` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `appareils`;
+CREATE TABLE IF NOT EXISTS `appareils` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `Cible`
+-- Déchargement des données de la table `appareils`
 --
 
-INSERT INTO `Cible` (`id`, `nom`) VALUES
-(1, 'salon'),
-(2, 'chambre'),
-(3, 'cuisine'),
-(4, 'garage');
+INSERT INTO `appareils` (`id`, `nom`) VALUES
+(1, 'Lampe'),
+(2, 'Télévision'),
+(3, 'Climatisation'),
+(4, 'Radio'),
+(5, 'Frigo'),
+(6, 'Ventilateur'),
+(7, 'Ordinateur');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Sujet`
+-- Structure de la table `lieux`
 --
 
-CREATE TABLE `Sujet` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `lieux`;
+CREATE TABLE IF NOT EXISTS `lieux` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `Sujet`
+-- Déchargement des données de la table `lieux`
 --
 
-INSERT INTO `Sujet` (`id`, `nom`) VALUES
-(1, 'lumière'),
-(2, 'température'),
-(3, 'volets');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `Action`
---
-ALTER TABLE `Action`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `Article`
---
-ALTER TABLE `Article`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `Cible`
---
-ALTER TABLE `Cible`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `Sujet`
---
-ALTER TABLE `Sujet`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `Action`
---
-ALTER TABLE `Action`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `Article`
---
-ALTER TABLE `Article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `Cible`
---
-ALTER TABLE `Cible`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `Sujet`
---
-ALTER TABLE `Sujet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+INSERT INTO `lieux` (`id`, `nom`) VALUES
+(1, 'Cuisine'),
+(2, 'Salon'),
+(14, 'Bureau'),
+(12, 'Garage'),
+(13, 'Jardin'),
+(11, 'Chambre');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
